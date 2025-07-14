@@ -1,0 +1,473 @@
+/* homePage.css */
+
+/* 1. Global Styles & Variables */
+:root {
+    --primary-color: #00bcd4; /* Aqua/Cyan for main accents */
+    --secondary-color: #673ab7; /* Purple for depth */
+    --gradient-start: #00bcd4;
+    --gradient-end: #673ab7;
+    --text-color: #e0e0e0;
+    --background-dark: #1a1a2e;
+    --background-light-dark: #2c2c4d;
+    --border-glow: #00e5ff; /* A brighter aqua for glows */
+    --card-bg: rgba(44, 44, 77, 0.6); /* Slightly transparent for glassmorphism */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-backdrop: blur(10px);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* A modern, clean font */
+    background: linear-gradient(135deg, var(--background-dark), #100f2a);
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar styling (optional, for a custom look) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* 2. General Layout & Background Animations */
+.tech-homepage {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /* Crucial for containing background animations */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background animation - subtle glowing grid/dots */
+.tech-homepage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at bottom right, rgba(103, 58, 183, 0.15) 0%, transparent 25%),
+        repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(255,255,255,0.02) 49px, rgba(255,255,255,0.02) 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,0.02) 49px, rgba(255,255,255,0.02) 50px);
+    background-size: 100% 100%;
+    animation: backgroundPulse 15s infinite alternate ease-in-out;
+    z-index: -1; /* Send it to the back */
+}
+
+@keyframes backgroundPulse {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 5% 5%; }
+}
+
+/* General button styling */
+.home-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn {
+    background: linear-gradient(90deg, #00bcd4, #00e5ff);
+    color: var(--background-dark);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+}
+
+.register-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    margin-left: 15px;
+}
+
+.register-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+}
+
+.tech-gradient {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* 3. Navbar Styling */
+.tech-nav {
+    background: rgba(44, 44, 77, 0.3); /* Semi-transparent */
+    backdrop-filter: var(--glass-backdrop); /* Glassmorphism effect */
+    border-bottom: 1px solid var(--glass-border);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tech-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.tech-logo .glow {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--border-glow), 0 0 25px var(--border-glow);
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 5px var(--border-glow), 0 0 10px var(--border-glow); }
+    100% { text-shadow: 0 0 15px var(--border-glow), 0 0 25px var(--border-glow), 0 0 35px var(--border-glow); }
+}
+
+.tech-nav-buttons {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+/* 4. Hero Section Animations */
+.tech-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 70vh; /* Adjust as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-hero-content {
+    z-index: 1; /* Ensure content is above animations */
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.tech-hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+.tech-hero-subtitle {
+    font-size: 1.7rem;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    max-width: 700px;
+}
+
+.tech-hero-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+    overflow: hidden;
+}
+
+.tech-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    opacity: 0.1;
+    animation: moveCircle 20s infinite linear alternate;
+}
+
+.tech-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    animation: panGrid 40s infinite linear;
+}
+
+@keyframes moveCircle {
+    0% { top: 10%; left: 10%; transform: scale(1); }
+    25% { top: 50%; left: 80%; transform: scale(1.2); }
+    50% { top: 80%; left: 20%; transform: scale(0.9); }
+    75% { top: 30%; left: 50%; transform: scale(1.1); }
+    100% { top: 10%; left: 10%; transform: scale(1); }
+}
+
+@keyframes panGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: -500px -500px; }
+}
+
+/* Responsive adjustments for hero section */
+@media (max-width: 768px) {
+    .tech-hero-title {
+        font-size: 3rem;
+    }
+    .tech-hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* 5. Stats Section */
+.tech-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-stat {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-stat:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 229, 255, 0.4);
+}
+
+.tech-stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.tech-stat-label {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+}
+
+/* 6. About Section */
+.tech-about {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-about-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-about-content {
+    flex: 1;
+    text-align: left;
+}
+
+.tech-about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.tech-about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+.tech-about-image {
+    flex: 1;
+    min-height: 300px; /* Placeholder for visual */
+    background: linear-gradient(45deg, #0d1a3a, #2a0d3a); /* Placeholder gradient */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    /* Animation for the placeholder image */
+    animation: floatImage 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatImage {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+@media (max-width: 992px) {
+    .tech-about-container {
+        flex-direction: column;
+    }
+    .tech-about-content, .tech-about-image {
+        text-align: center;
+        width: 100%;
+    }
+    .tech-about-image {
+        margin-top: 40px;
+    }
+}
+
+/* 7. Tracks Section */
+.tech-tracks {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-tracks h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.tech-track-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.tech-track-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 35px 25px;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* For pseudo-element effects */
+}
+
+.tech-track-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* The colored border */
+    background: inherit; /* Inherits the borderTop color */
+    z-index: 1;
+}
+
+.tech-track-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tech-track-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.tech-track-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 8. Footer */
+.tech-footer {
+    background: var(--background-dark);
+    padding: 30px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.tech-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.tech-footer-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+}
+
+.tech-footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tech-footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tech-footer-links a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}

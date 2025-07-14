@@ -1,0 +1,43 @@
+.leaderboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #eef6fb;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.leaderboard-container h2 {
+  text-align: center;
+  color: #0d47a1;
+  margin-bottom: 30px;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.leaderboard-table th {
+  background-color: #0073e6;
+  color: white;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.leaderboard-table td:first-child {
+  font-weight: bold;
+  color: #0073e6;
+}

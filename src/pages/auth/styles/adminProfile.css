@@ -1,0 +1,64 @@
+.profile-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.profile-card h2 {
+  margin-bottom: 1rem;
+}
+
+.profile-card p {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+}
+
+.profile-card input {
+  width: 80%;
+  padding: 8px;
+  font-size: 1rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.edit-buttons {
+  margin-top: 1.5rem;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.save-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+  color: white;
+}
