@@ -51,6 +51,7 @@ function Login() {
 
   return (
     <div className="auth-container">
+      <h1 className="auth-heading">AQUA HACK</h1>
       <div className="auth-box">
         <h2 className="auth-title">Login</h2>
 
@@ -83,9 +84,8 @@ function Login() {
         <div className="auth-link">
           Don't have an account? <Link to="/register">Register here</Link>
         </div>
-
         <div className="auth-link">
-          <Link to="/forgot-password">Forgot password?</Link> {/* ✅ This is the added link */}
+          <Link to="/forgot-password">Forgot password?</Link>
         </div>
       </div>
     </div>
