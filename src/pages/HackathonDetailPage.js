@@ -37,8 +37,16 @@ export default function HackathonDetailPage() {
   const navigate = useNavigate();
   const hackathon = hackathonData[hackId];
 
+  const handleRegister = () => {
+    navigate(`/register/${hackId}`, { state: { hackathon } });
+  };
+
   if (!hackathon) {
-    return <div style={{ padding: '2rem' }}><h2>Hackathon Not Found</h2></div>;
+    return (
+      <div style={{ padding: '2rem' }}>
+        <h2>Hackathon Not Found</h2>
+      </div>
+    );
   }
 
   return (
@@ -48,13 +56,19 @@ export default function HackathonDetailPage() {
       <img
         src={hackathon.image}
         alt={hackathon.title}
-        style={{ width: '100%', maxWidth: '600px', borderRadius: '10px', margin: '1rem 0' }}
+        style={{
+          width: '100%',
+          maxWidth: '600px',
+          borderRadius: '10px',
+          margin: '1rem 0'
+        }}
       />
       <p><strong>Start:</strong> {hackathon.startDate}</p>
       <p><strong>End:</strong> {hackathon.endDate}</p>
       <p style={{ marginTop: '1rem' }}>{hackathon.description}</p>
+
       <button
-        onClick={() => alert(`Registered for ${hackathon.title}!`)}
+        onClick={handleRegister}
         style={{
           marginTop: '2rem',
           padding: '0.75rem 1.5rem',

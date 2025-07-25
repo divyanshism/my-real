@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../auth/styles/register.css'; // ✅ same CSS as login
+import { useNavigate, Link } from 'react-router-dom'; // ✅ only this one
+import '../auth/styles/register.css';
+
+
+
+
+<div className="auth-link">
+  Already have an account? <Link to="/">Login here</Link>
+</div>
+
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -81,7 +89,8 @@ function Register() {
         </form>
 
         <div className="auth-link">
-          Already have an account? <a href="/">Login here</a>
+          Already have an account? <Link to="/">Login here</Link>
+
         </div>
       </div>
     </div>

@@ -15,10 +15,10 @@ import TeamCreation from './pages/Student/teamCreation';
 import Participation from './pages/Student/Participation';
 import Feedback from './pages/Student/Feedback';
 import ForgotPassword from './pages/auth/forgotPassword';
-
 import ResetPassword from './pages/auth/resetPassword';
 import HackathonDetailPage from './pages/HackathonDetailPage';
 
+// ✅ 'Page' line removed
 
 function App() {
   return (
@@ -41,12 +41,11 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/hackathons/:hackId" element={<HackathonDetailPage />} />
-
-       
-
+        <Route path="/register/:hackId" element={<Register />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
